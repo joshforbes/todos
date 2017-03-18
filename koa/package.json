@@ -1,0 +1,22 @@
+{
+  "name": "todos-koa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bookshelf": "^0.10.3",
+    "knex": "^0.12.8",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-router": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
