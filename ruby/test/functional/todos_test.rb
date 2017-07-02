@@ -2,15 +2,16 @@ require 'test_helper'
 
 class TodosTest < ActionDispatch::IntegrationTest
   test 'gets an index of todos' do
+    todo = create(:todo)
+
     get '/todos'
 
     assert_response :success
-    assert_includes(@response.body, todos(:incomplete).to_json)
-    assert_includes(@response.body, todos(:complete).to_json)
+    assert_includes(@response.body, todo.to_json)
   end
 
   test 'can show an individual todo' do
-    todo = todos(:complete)
+    todo = create(:todo)
 
     get "/todos/#{todo.id}"
 
@@ -26,7 +27,7 @@ class TodosTest < ActionDispatch::IntegrationTest
   end
 
   test 'a todo can be updated' do
-    todo = todos(:complete)
+    todo = create(:todo)
 
     patch("/todos/#{todo.id}", params: {name: 'Testing'})
 
@@ -35,7 +36,7 @@ class TodosTest < ActionDispatch::IntegrationTest
   end
 
   test 'a todo can be delete' do
-    todo = todos(:complete)
+    todo = create(:todo)
 
     delete "/todos/#{todo.id}"
 

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class TodoTest < ActiveSupport::TestCase
   test 'can toggle an incomplete todo to completed' do
-    todo = todos(:incomplete)
+    todo = create(:todo, completed: false)
 
     todo = todo.toggle
 
@@ -10,7 +10,7 @@ class TodoTest < ActiveSupport::TestCase
   end
 
   test 'can toggle a completed todo to incomplete' do
-    todo = todos(:complete)
+    todo = create(:todo, completed: true)
 
     todo = todo.toggle
 

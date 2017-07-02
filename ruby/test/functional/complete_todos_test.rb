@@ -2,7 +2,7 @@ require 'test_helper'
 
 class CompleteTodosTest < ActionDispatch::IntegrationTest
   test 'a todo can be completed' do
-    todo = todos(:incomplete)
+    todo = create(:todo, completed: false)
 
     patch("/complete-todos/#{todo.id}")
 
